@@ -1,6 +1,6 @@
 #<------------------------------------------------------->
-def cul(a, b, p):#計算機函數
-    if p == '+':
+def cul(a, b, p):#計算函數
+    if p == '+':#四則運算
         ans = a + b
     elif p == '-':
         ans = a - b
@@ -8,12 +8,19 @@ def cul(a, b, p):#計算機函數
         ans = a * b
     elif p == '/':
         ans = a / b
-    elif p == '1':
-        ans = abs(a)
-    elif p == '2':
-        ans = max(a, b)
-    elif p == '3':
-        ans = min(a, b)
+#<------------------------------------------------------->
+    elif p == '1':#階乘
+        if a < 0:
+            print('抱歉，負數没有階乘')
+        elif a == 0:
+            print('0 的階乘為 1')
+        else:
+            ans = 1
+            for i in range(1,a + 1):
+                ans = ans*i
+#<------------------------------------------------------->             
+    elif p == '2':#平方
+        ans = a**b
     else:
         print('請輸入四則運算或想求出的值')
     return ans  #返回值
@@ -22,10 +29,9 @@ print('請輸入數字')#計算機介面
 a = int(input('數1='))
 b = int(input('數2='))
 print('請輸入運算符號或想求出的值(若想退出此功能請在此輸入exit)')
-print('a的絕對值=1')
-print('a,b的最大值=2')
-print('a,b的最小值=3')
-print('重新設定=4')
+print('求a的x階乘=1')
+print('求a的x次方=2 數字2為次方數')
+print('重新設定=3')
 p = input()
 ans = cul(a, b, p)#呼叫函數
 print('答案是%2d' % (ans))
